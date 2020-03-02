@@ -1,0 +1,7 @@
+background-color: blue;
+border-style:outset;
+color:white;
+border-radius:10px;
+border-width:2px;
+font:bold;
+padding:10px;
