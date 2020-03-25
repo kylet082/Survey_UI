@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtWidgets
 
 from model import ModelInterface
-from .UiRoutes.menu_ui import MenuRoute
+from .ui_routes.menu_ui import MenuRoute
 
 
 class Ui_MainWindow(object):
