@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QPushButton
 from ..common import util
 
 
-class UIButton(object):
+class Button(object):
 
     def __init__(self,name, QtWidget):
         self.btn = QPushButton(QtWidget)
@@ -31,12 +31,17 @@ class UIButton(object):
         self.btn.setText(text)
         return self
 
-    def setToolTip(self):
-        print("adding tool tip")
+    def setToolTip(self, text):
+        self.btn.setToolTip(text)
+        return self
 
-    def addToContainer(self, container : QtWidgets.QVBoxLayout,stretch, layout):
+    def addGeometry(self,x,y,w,h):
+        self.btn.setGeometry(QtCore.QRect(x,y,w,h))
+        return self
+
+    def addToContainer(self, container, stretch, layout):
         container.addWidget(self.btn,stretch,layout)
         return self
 
-    def build(self):
+    def qComp(self):
         return self.btn

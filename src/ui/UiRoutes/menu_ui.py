@@ -1,25 +1,25 @@
 from PyQt5.QtWidgets import QPushButton
 
+from controller import MenuController
 from ..componets.buttons import UIButton
 from ..common import Constants
+
 from PyQt5 import QtWidgets, QtCore
+
+
 
 class MenuRoute(object):
 
-    def __init__(self, name, frame, container_frame):
-        self.frame = frame
+    def __init__(self,controller : MenuController, name, widget: QtWidgets.QWidget):
         self.name = name
-        self.container_frame = container_frame
+        self.widget = widget
+        self.controller = controller
 
 
     def set_up(self):
-        # init frame and qwidget to attach objects
-        self.widget = QtWidgets.QWidget(self.frame)
-        self.widget.setGeometry(self.frame.geometry())
-        self.widget.setObjectName("widget")
 
         # layout
-        btn_container = QtWidgets.QVBoxLayout(self.container_frame)
+        btn_container = QtWidgets.QVBoxLayout(self.widget)
         btn_container.setContentsMargins(280, 72, 0, 155)
         btn_container.setObjectName("center_btn_container")
 
@@ -40,19 +40,33 @@ class MenuRoute(object):
             .withMaxSize(250, 40).enabled(True).withStyleSheet(Constants.BUTTON_STYLESHEET) \
             .addToContainer(btn_container, 0, QtCore.Qt.AlignVCenter).build()
 
+        self.register_listeners()
+
+    def register_listeners(self):
+        self.create_new_btn.clicked.connect(self.create_new_event)
+        self.launch_survey_btn.clicked.connect(self.launch_survey_event)
+        self.survey_history_btn.clicked.connect(self.survey_history_event)
+        self.exit_btn.clicked.connect(self.exit_event)
+
+
+    def create_new_event(self):
+        print("create")
+
+    def launch_survey_event(self):
+        print("launch")
+
+    def survey_history_event(self):
+        print("history")
+
+    def exit_event(self):
+        print("closing")
+        QtWidgets.qApp.quit()
+
+    def creat_click(self):
+        self.widget.setHidden(True)
 
     def update_route(self):
         self.widget.update()
 
-    def get_create_new_btn(self):
-        return self.create_new_btn
 
-    def get_launch_survey_btn(self):
-        return self.launch_survey_btn
-
-    def get_survey_history_btn(self):
-        return self.survey_history_btn
-
-    def get_exit_btn(self):
-        return self.exit_btn
 
