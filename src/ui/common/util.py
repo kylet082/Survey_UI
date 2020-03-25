@@ -10,6 +10,8 @@ class Dimension(object):
         self.width = width
         self.height= height
 
-class RectDimension(Dimension):
-    def __init__(self, x, y, width, height):
-        super()
+    def asQRect(self):
+        print("")
+
+    def asQSize(self):
+        print("")

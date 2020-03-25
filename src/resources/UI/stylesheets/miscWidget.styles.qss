@@ -1,0 +1,11 @@
+/*used in the preview widget in the create new ui */
+QFrame {
+    background:transparent;
+    border-style:solid;
+    border-color:grey;
+    border-width: 0.03em;
+}
+
+QStackedWidget {
+      border-style:none;
+}
