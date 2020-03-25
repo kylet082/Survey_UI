@@ -1,0 +1,25 @@
+QComboBox {
+    selection-background-color: grey;
+    background:transparent;
+    border-color: rgb(4, 76, 126);
+    border-style: solid;
+    border-width: 2px;
+    border-radius:5px;
+    padding: 1px 0px 1px 3px;
+}
+
+QComboBox:focus {
+    color: green;
+}
+
+QComboBox::drop-down
+{
+    border: 0px; /* This seems to replace the whole arrow of the combo box */
+}
+
+/* Define a new custom arrow icon for the combo box */
+QComboBox::down-arrow {
+    image: url(resources/UI/images/arrow-icon.png);
+    width: 10px;
+    height: 14px;
+}
