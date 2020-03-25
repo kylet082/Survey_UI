@@ -1,14 +1,19 @@
 import sys
 from PyQt5 import QtWidgets
 
+from model import ModelInterface
 from ui import Ui_MainWindow
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    mainWindow = QtWidgets.QMainWindow()
 
+    # model init
+    model = ModelInterface()
+    model.register()
 
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    ui = Ui_MainWindow(model, mainWindow)
+
+    mainWindow.show()
     sys.exit(app.exec_())
