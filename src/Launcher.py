@@ -1,6 +1,5 @@
 import sys
 from PyQt5 import QtWidgets
-
 from model import ModelInterface
 from ui import Ui_MainWindow
 

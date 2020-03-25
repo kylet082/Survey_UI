@@ -1,8 +1,6 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QLineEdit, QTextEdit
-
-
-from ..common import util, Constants
+from ..common import util
 
 
 class TextEdit(object):
@@ -29,7 +27,7 @@ class TextBoxEdit(object):
         self.text_box_edit = QTextEdit(container_frame)
         self.text_box_edit.setObjectName(name)
 
-    def withStyleSheet(self,styleSheet):
+    def withStyleSheet(self, styleSheet):
         self.text_box_edit.setStyleSheet(util.openStyleSheet(styleSheet))
         return self
 

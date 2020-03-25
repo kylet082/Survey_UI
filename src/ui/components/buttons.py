@@ -1,13 +1,12 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import QPushButton
-
 from ..common import util
 
 
 class Button(object):
 
-    def __init__(self,name, QtWidget):
-        self.btn = QPushButton(QtWidget)
+    def __init__(self,name, qtWidget):
+        self.btn = QPushButton(qtWidget)
         self.btn.setObjectName(name)
 
     def withStyleSheet(self, path):
@@ -35,8 +34,8 @@ class Button(object):
         self.btn.setToolTip(text)
         return self
 
-    def addGeometry(self,x,y,w,h):
-        self.btn.setGeometry(QtCore.QRect(x,y,w,h))
+    def addGeometry(self, x, y, w, h):
+        self.btn.setGeometry(QtCore.QRect(x, y, w, h))
         return self
 
     def addToContainer(self, container, stretch, layout):

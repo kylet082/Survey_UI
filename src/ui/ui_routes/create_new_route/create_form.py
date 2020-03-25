@@ -16,7 +16,7 @@ class CreateNewForm(object):
         self.container_frame = container_frame
         self.model = model
 
-    def setup(self):
+    def init_ui(self):
         self.form_frame = QtWidgets.QFrame(self.container_frame)
         self.form_frame.setGeometry(QtCore.QRect(10, 60, 780, 210))
         self.form_frame.setMaximumSize(QtCore.QSize(780, 270))
@@ -27,7 +27,7 @@ class CreateNewForm(object):
 
         self.form_widget = QtWidgets.QWidget(self.form_frame)
         self.form_widget.setGeometry(QtCore.QRect(10, 0, 760, 210))
-        self.form_widget.setObjectName("form_Widget")
+        self.form_widget.setObjectName("form_widget")
         self.form_layout = QtWidgets.QFormLayout(self.form_widget)
         self.form_layout.setContentsMargins(85, 0, 150, 0)
         self.form_layout.setObjectName("form_layout")
@@ -62,12 +62,12 @@ class CreateNewForm(object):
         self.__register_listeners()
 
     def __register_listeners(self):
-        self.comboBox.currentTextChanged.connect(self.combobox_event)
+        self.comboBox.currentTextChanged.connect(self.__combobox_event)
 
     def set_combox_items_options(self, items: QtWidgets.QStackedWidget):
         self.items = items
 
-    def combobox_event(self):
+    def __combobox_event(self):
         selected = "{}_page".format(self.comboBox.currentText().lower().replace(" ", "_"))
         for i in range(self.items.count()):
             if self.items.widget(i).objectName() == selected:

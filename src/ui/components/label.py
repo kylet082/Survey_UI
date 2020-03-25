@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QLabel
 
+
 class Label(object):
 
     def __init__(self, name, container_frame: QtWidgets.QWidget):
@@ -14,4 +15,3 @@ class Label(object):
 
     def qComp(self):
         return self.label
-

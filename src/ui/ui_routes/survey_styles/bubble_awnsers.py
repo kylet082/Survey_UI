@@ -10,11 +10,11 @@ class BubbleStyle(QtWidgets.QWidget):
         super().__init__(frame)
         self.model = model
 
-    def setup(self):
+    def init_ui(self):
         self.setObjectName("bubble_style_page")
         self.gridLayoutWidget = QtWidgets.QWidget(self)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(2, 2, 760, 170))
-        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
+        self.gridLayoutWidget.setObjectName("widget")
         self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setContentsMargins(100, 13, 100, 32)
         self.gridLayout.setHorizontalSpacing(100)

@@ -1,5 +1,4 @@
 from PyQt5 import QtWidgets, QtCore
-
 from src import ModelInterface
 from ui.ui_routes.survey_styles.bubble_awnsers import BubbleStyle
 from ui.ui_routes.survey_styles.emoji_awnsers import EmojiStyle
@@ -15,7 +14,7 @@ class SurveyStyle(object):
         self.model = model
         self.state = state
 
-    def setup(self):
+    def init_ui(self):
         self.survey_type_frame = QtWidgets.QFrame(self.container_frame)
         self.survey_type_frame.setGeometry(QtCore.QRect(10, 290, 780, 180))
         self.survey_type_frame.setStyleSheet(util.openStyleSheet(Constants.WIDGET_STYLESHEET))
@@ -28,22 +27,20 @@ class SurveyStyle(object):
         self.survey_type_stackedWidget.setObjectName("survey_type_stackedWidget")
 
         self.bubble_page = BubbleStyle(None, self.model)
-        self.bubble_page.setup()
+        self.bubble_page.init_ui()
         self.edit_btn = Button("edit_btn", self.bubble_page).setBtnText("edit").enabled(True) \
                 .withStyleSheet(Constants.BUTTON_STYLESHEET).addGeometry(690,135,80,40)
 
         self.survey_type_stackedWidget.addWidget(self.bubble_page)
 
         self.emoji_comp_page = EmojiCompStyle(None, self.model)
-        self.emoji_comp_page.setup()
+        self.emoji_comp_page.init_ui()
 
         self.survey_type_stackedWidget.addWidget(self.emoji_comp_page)
 
         self.emoji_page = EmojiStyle(None, self.model)
-        self.emoji_page.setup()
+        self.emoji_page.init_ui()
         self.survey_type_stackedWidget.addWidget(self.emoji_page)
-
-        print(self.survey_type_stackedWidget.count())
 
     def getStackedWidget(self) -> QtWidgets.QStackedWidget:
         return self.survey_type_stackedWidget

@@ -1,5 +1,4 @@
 from src import ModelInterface
-
 from PyQt5 import QtWidgets, QtCore
 from ui.components.buttons import Button
 from ui.common import Constants
@@ -11,13 +10,13 @@ class ToolBar(object):
         self.model = model
         self.container_frame = container_frame
 
-    def setup(self):
+    def init_ui(self):
         self.toolbar_widget = QtWidgets.QWidget(self.container_frame)
         self.toolbar_widget.setGeometry(QtCore.QRect(10, 0, 781, 51))
         self.toolbar_widget.setObjectName("tool_bar_widget")
         self.toolbar_layout = QtWidgets.QHBoxLayout(self.toolbar_widget)
         self.toolbar_layout.setContentsMargins(410, 0, 0, 0)
-        self.toolbar_layout.setObjectName("horizontalLayout")
+        self.toolbar_layout.setObjectName("toolbar_layout")
 
         # buttons
         self.preview_btn = Button("preview_btn", self.container_frame).setBtnText("preview") \

@@ -1,5 +1,4 @@
 from PyQt5 import QtCore, QtWidgets
-
 from model import ModelInterface
 from .ui_routes.menu_ui import MenuRoute
 
@@ -8,9 +7,9 @@ class Ui_MainWindow(object):
 
     def __init__(self, model: ModelInterface, main_window: QtWidgets.QMainWindow):
         self.model = model
-        self.setupUi(main_window)
+        self.init_ui(main_window)
 
-    def setupUi(self, MainWindow):
+    def init_ui(self, MainWindow):
         width = 801
         height = 481
 
@@ -31,10 +30,9 @@ class Ui_MainWindow(object):
         self.route = MenuRoute(MainWindow, self.model, self.container_frame)
         self.route.setGeometry(self.container_frame.geometry())
         self.route.setObjectName("widget")
-        self.route.set_up()
+        self.route.init_ui()
 
         MainWindow.setCentralWidget(self.centralwidget)
-
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
 
